@@ -1,12 +1,19 @@
 version: "3.3"
 
 services:
+  db:
+    image: postgres:11.1
+    volumes:
+      - "./services/app/config/init.sql:/docker-entrypoint-initdb.d/init.sql"
+      - pgdata:/var/lib/postgresql/data
   app:
     build:
       context: services/app
       dockerfile: Dockerfile
-    command: sh -c "make start"
+    command: sh -c "node app.js"
     env_file: ".env"
+    depends_on:
+      - db
     volumes:
       - "~/.bash_history:/.bash_history"
       - "./services/app:/usr/src/app:cached"
@@ -21,3 +28,6 @@ services:
       - "./services/nginx/myConfig.conf:/etc/nginx/conf.d/default.conf"
     depends_on:
       - app
+
+volumes:
+  pgdata:
