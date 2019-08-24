@@ -1,3 +1,10 @@
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    name: DataTypes.STRING
+  });
+  return User;
+};
+/*
 export default (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
     email: {
@@ -6,3 +13,4 @@ export default (sequelize, DataTypes) => {
   });
   return User;
 };
+*/
