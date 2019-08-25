@@ -9,7 +9,7 @@ services:
   app:
     build:
       context: services/app
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     command: sh -c "npm run  start"
     env_file: ".env"
     depends_on:

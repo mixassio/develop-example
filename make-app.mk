@@ -1,6 +1,9 @@
 development-setup-env:
 	ansible-playbook ansible/development.yml -i ansible/development -vv
 
+app-test:
+	docker-compose -f services/app/docker-compose.test.yml run sut
+
 app:
 	docker-compose up
 

@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "sequelize": "sequelize",
     "nodemon": "nodemon",
     "start": "npx nodemon app.js"
@@ -17,5 +20,11 @@
     "nodemon": "^1.19.1",
     "sequelize-cli": "^5.5.0",
     "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-supertest-matchers": "0.0.1",
+    "supertest": "^3.3.0"
   }
 }
